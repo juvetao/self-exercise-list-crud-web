@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.css}" />
+    <meta charset="UTF-8">
+    <title>Car List</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Cars:</h1>
+        <div th:if="${cars.isEmpty()}">
+            <p>No car recorded</p>
+        </div>
+    </div>
+    <div th:unless="${cars.isEmpty()}">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Reg Number</th>
+                    <th scope="col">Brand</th>
+                    <th scope="col">Mode</th>
+                    <th scope="col">Reg Date</th>
+                    <th scope="col">ACTION:</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="car : ${cars}">
+                    <td><span th:text="${car.id}"></span></td>
+                    <td><span th:text="${car.regNumber}"></span></td>
+                    <td><span th:text="${car.brand}"></span></td>
+                    <td><span th:text="${car.mode}"></span></td>
+                    <td><span th:text="${car.regDate}"></span></td>
+                    <td>
+                        <form th:action="@{cars/delete}" method="post">
+                            <input type="hidden" id="id" name="id" th:value="${car.id}"/>
+                            <input class="btn btn-success btn btn-sm" type="submit" value="delete">
+                            <a class="btn btn-success btn btn-sm" th:href="@{cars/find(id=${car.id})}">details</a>
+                        </form>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="container">
+        <a class="btn btn-success btn btn-sm" th:href="@{/cars/create}">Create</a>
+    </div>
+</body>
+</html>

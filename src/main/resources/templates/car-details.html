@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.css}" />
+<head>
+    <meta charset="UTF-8">
+    <title>Details</title>
+</head>
+<body>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Reg Number</th>
+        <th scope="col">Brand</th>
+        <th scope="col">Mode</th>
+        <th scope="col">Reg Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><span th:text="${car.id}"></span></td>
+        <td><span th:text="${car.regNumber}"></span></td>
+        <td><span th:text="${car.brand}"></span></td>
+        <td><span th:text="${car.mode}"></span></td>
+        <td><span th:text="${car.regDate}"></span></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

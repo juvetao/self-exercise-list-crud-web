@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.css}" />
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Register New Car</h1>
+    </div>
+    <form th:action="@{process}" method="post">
+        <div class="form-group">
+            <label>Reg Number</label>
+            <input class="form-control form-control-sm" type="text" placeholder="Enter reg number" id="regNumber" name="regNumber">
+        </div>
+        <div class="form-group">
+            <label>Brand</label>
+            <input class="form-control form-control-sm" type="text" placeholder="Enter brand name" id="brand" name="brand">
+        </div>
+        <div class="form-group">
+            <label>Mode</label>
+            <input class="form-control form-control-sm" type="text" placeholder="Enter mode" id="mode" name="mode">
+        </div>
+        <div class="form-group">
+            <label>Reg Date</label>
+            <input class="form-control form-control-sm" type="date" placeholder="Enter/ Select reg date" id="regDate" name="regDate">
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Send</button>
+    </form>
+</body>
+</html>
